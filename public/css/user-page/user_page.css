@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+.user-page {
+  margin-top: 25px;
+  left: 50%;
+  max-width: 100%;
+  position: relative;
+  transform: translateX(-50%);
+  width: 1500px;
+}
+
+.user-page__to-edit {
+  float: right;
+}

@@ -1,0 +1,30 @@
+.user-contents {
+  background-color: #dddddd;
+  display: inline-block;
+  left: 50%;
+  max-width: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1000px;
+}
+
+.tabs {
+  border-bottom: solid thin #b4b4b4;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.tabs__tab {
+  display: inline-block;
+  font-size: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  width: calc(50% - 8px);
+}
+
+.tabs__tab_on_select {
+  background-color: #b4b4b4;
+}

@@ -10,7 +10,4 @@ class PagesController < ApplicationController
 
   def search_result
   end
-
-  def post_request
-  end
 end

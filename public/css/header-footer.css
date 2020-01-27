@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: 2px solid #000;
+  z-index: 99;
+  background-color: #FFF;
+}
+
+.coreview-logo {
+  margin: 10px;
+}
+
+.button {
+  padding: 5px;
+  font-size: 100%;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.header .search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+.header .search-text {
+  border: 1px solid rgba(13, 52, 168, 0.5);
+  background-color: rgba(13, 52, 168, 0.05);
+  color: #000;
+  padding: 5px;
+  font-size: 100%;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  position: relative;
+  width: 70%;
+}
+
+.header .search-button {
+  border: 1px solid rgba(13, 52, 168, 0.5);
+  background-color: #fff;
+  color: #000;
+  margin-left: -1px;
+  position: relative;
+  width: 25%;
+}
+
+.header .buttons {
+  position: absolute;
+  right: 0px;
+  transform: translateY(-50%);
+  top: 50%;
+  margin-right: 10px;
+}
+
+.header .post-button {
+  border-radius: 3px;
+  border: 2px solid #0D34A8;
+  background-color: #0D34A8;
+  color: #FFF;
+}
+
+.header .signin-button {
+  border-radius: 3px;
+  border: 2px solid #0D34A8;
+  background-color: transparent;
+  color: #0D34A8;
+}
+
+.content {
+  margin-top: 60px;
+}
+
+.body {
+  padding: 0 20px;
+}
+
+.footer {
+  margin: 0 auto;
+  width: calc(100% - 20px);
+  background-color: #082066;
+  color: #FFF;
+  padding: 10px;
+}
+
+.footer .columns {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer .columns div {
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .search {
+    display: none;
+  }
+}

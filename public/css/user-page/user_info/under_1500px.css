@@ -1,0 +1,19 @@
+.user-info {
+  height: 250px;
+}
+
+.user-info__icon {
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+
+.user-info__name {
+  left: 0;
+  position: static;
+  top: 0;
+  transform: translate(0, 0);
+
+  text-align: center;
+  width: 100%;
+}

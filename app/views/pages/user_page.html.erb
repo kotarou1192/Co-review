@@ -1,1 +1,57 @@
-<h1>Pages#user_page</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/user-page/content-list.css">
+    <link rel="stylesheet" href="/css/user-page/header.css">
+    <link rel="stylesheet" href="/css/user-page/user_activities.css">
+    <link rel="stylesheet" href="/css/user-page/user_contents/default.css">
+    <link rel="stylesheet" href="/css/user-page/user_contents/under_1500px.css" media="(max-width: 1500px)">
+    <link rel="stylesheet" href="/css/user-page/user_info/default.css">
+    <link rel="stylesheet" href="/css/user-page/user_info/under_1500px.css" media="(max-width: 1500px)">
+    <link rel="stylesheet" href="/css/user-page/user_page.css">
+
+    <title>user page</title>
+  </head>
+
+  <header>
+    ヘッダーっす。
+  </header>
+  
+  <body>
+    <div class="user-page">
+      <a class="user-page__to-edit">設定</a>
+      <div class="user-info">
+        <div class="user-info__icon"></div>
+        <p class="user-info__name">user-name</p>
+      </div>
+
+      <table class="user-activities">
+        <tr class="user-activity user-activity_of_requested-num">
+          <td class="user-activity__title">リクエスト数</td>
+          <td class="user-activity__digit">10</td>
+        </tr>
+        
+        <tr class="user-activity user-activity_of_reviewed-num">
+          <td class="user-activity__title">レビュー数</td>
+          <td class="user-activity__digit">20</td>
+        </tr>
+
+        <tr class="user-activity user-activity_of_got-nice-num">
+          <td class="user-activity__title">貰ったいいね数</td>
+          <td class="user-activity__digit">15</td>
+        </tr>
+      </table>
+
+      <div class="user-contents">
+        <ul class="tabs">
+          <li class="tabs__tab tabs__tab_on_select">リクエスト</li>
+          <li class="tabs__tab">ブックマーク</li>
+        </ul>
+        <div class="content-list">コンテントー</div>
+      </div>
+    </div>
+  </body>
+</html>

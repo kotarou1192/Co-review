@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_141015) do
-
-  create_table "requests", force: :cascade do |t|
-    t.string "user_id"
-    t.string "title"
-    t.string "text"
-    t.boolean "is_open"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2020_01_27_154641) do
 
   create_table "review_requests", force: :cascade do |t|
     t.string "user_id"

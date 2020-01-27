@@ -1,0 +1,6 @@
+.user-contents {
+  left: none;
+  margin-left: 50%;
+  position: static;
+  transform: translateX(-50%);
+}

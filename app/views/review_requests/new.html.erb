@@ -1,0 +1,9 @@
+<%= form_for(@review_request) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+
+  <%= f.submit "post"%>
+<% end %>

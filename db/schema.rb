@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_154641) do
+ActiveRecord::Schema.define(version: 2020_01_28_065144) do
 
   create_table "review_requests", force: :cascade do |t|
-    t.string "user_id"
-    t.string "title"
-    t.string "text"
-    t.boolean "is_open"
+    t.string "user_id", default: "guest"
+    t.string "title", null: false
+    t.string "text", null: false
+    t.boolean "is_open", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["text"], name: "index_review_requests_on_text", unique: true
+    t.index ["title"], name: "index_review_requests_on_title", unique: true
   end
 
 end

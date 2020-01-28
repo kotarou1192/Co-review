@@ -1,13 +1,2 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: MyString
-  title: MyString
-  text: MyString
-  is_open: false
-
-two:
-  user_id: MyString
-  title: MyString
-  text: MyString
-  is_open: false

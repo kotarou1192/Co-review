@@ -11,6 +11,8 @@ class ReviewRequestsController < ApplicationController
     @review_request = ReviewRequest.new(review_request_params)
     # p params
     if @review_request.save
+      id = @review_request.id
+      redirect_to("/review_requests/#{id}")
     else
       render 'new'
     end

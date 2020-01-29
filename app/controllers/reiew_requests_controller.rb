@@ -1,2 +1,0 @@
-class ReiewRequestsController < ApplicationController
-end

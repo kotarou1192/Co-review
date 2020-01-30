@@ -5,6 +5,7 @@ class CreateReviewRequests < ActiveRecord::Migration[6.0]
       t.string :title, null: false
       t.string :text, null: false
       t.boolean :is_open, default: true
+      t.integer :review_count, default: 0
 
       t.timestamps
     end

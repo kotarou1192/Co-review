@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_065144) do
     t.string "title", null: false
     t.string "text", null: false
     t.boolean "is_open", default: true
+    t.integer "review_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["text"], name: "index_review_requests_on_text", unique: true

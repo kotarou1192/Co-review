@@ -1,2 +1,0 @@
-class RequestReviewsController < ApplicationController
-end

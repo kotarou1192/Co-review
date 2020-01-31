@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="/css/post-request.css">
+    <title>user page</title>
+  </head>
+
+  <body>
+    <%= form_for(@review_request, html: {class: "post-request"}) do |f| %>
+      <% if @review_request.errors.any? %>
+        <div class="error-list">
+          <p class="error-list__head">Error</p>
+          <% @review_request.errors.full_messages.each do |message| %>
+          <li class="error-list__message">
+            <%= message %>
+          </li>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= f.text_field :title,
+        class: "post-request__interface post-request__interface_input-title" %>
+
+      <%= f.submit "リクエスト",
+        class: "post-request__interface post-request__interface_submit" %>
+
+      <%= f.text_area :text,
+        class: "post-request__interface post-request__interface_input-text" %>
+
+     <%= f.submit "リクエスト",
+        class: "post-request__interface post-request__interface_submit post-request__interface_submit_bottom"%>
+    <% end %>
+  </body>
+</html>

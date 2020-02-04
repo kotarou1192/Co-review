@@ -16,6 +16,12 @@ module CoReview
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # To avoid format-brake
+    # set FALSE to auto-generated error fields by AR generator when `db:migrate`:
+    # <div class="field-with-errors">
+    #         <input>...</input>
+    # <div>
+    # => <input>...</input>
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
       %Q(#{html_tag}).html_safe
     end

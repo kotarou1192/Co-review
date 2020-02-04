@@ -1,0 +1,60 @@
+.review-request-card {
+  border: solid 2px #dddddd;
+  display: inline-block;
+  padding: 5px;
+  width: calc(100% - 4px - 10px);
+}
+
+.review-request-card__label {
+  display: inline-block;
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  width: 8rem;
+}
+
+.review-request-card__label_open {
+  background-color: #0da86d;
+}
+
+.review-request-card__label_close {
+  background-color: #f37575;
+}
+
+.review-request-card__title {
+  font-size: 35px;
+  margin: 0;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: calc(100% - 1rem);
+}
+
+.requester-information {
+  display: inline-block;
+}
+
+.requester-information__icon {
+  background-color: #0da86d;
+  border-radius: 50%;
+  display: inline-block;
+  height: 30px;
+  vertical-align: middle;
+  width: 30px;
+}
+
+.requester-information__name {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.review-request-information {
+  float: right;
+}
+
+.review-request-information__data {
+  display: inline-block;
+  margin: 0;
+}

@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/css/review-request-card.css">
+
+<div class="review-request-card review-request-card_open">
+  <p class="review-request-card__label review-request-card__label review-request-card__label_open">OPEN</p>
+
+  <div class="review-request-information">
+    <p class="review-request-information__data">
+      <%= date %>
+    </p>
+    <p class="review-request-information__data">
+      <%= time %>
+    </p>
+  </div>
+
+  <p class="review-request-card__title">
+    <%= title %>
+  </p>
+
+  <div class="requester-information">
+    <div class="requester-information__icon"></div>
+    <p class="requester-information__name">
+      <%= requester_name %>
+    </p>
+  </div>
+
+  <div class="review-request-information">
+    <p class="review-request-information__data">
+      <%= review_count.to_s + " reviews" %>
+    </p>
+  </div>
+</div>

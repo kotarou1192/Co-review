@@ -10,6 +10,26 @@ body {
   width: 80%;
 }
 
+.error-list {
+  background-color: #f37575;
+  border-radius: 10px;
+  color: white;
+  display: inline-block;
+  margin-bottom: 50px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+.error-list__head{
+  margin: 0;
+  margin-left: 0.5rem;
+}
+
+.error-list__message {
+  margin-left: 1rem;
+}
+
 .post-request__interface {
   border: solid 2px #dddddd;
   border-radius: 15px;

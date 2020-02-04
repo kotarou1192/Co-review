@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_02_04_100524) do
   create_table "tags", force: :cascade do |t|
     t.string "tag_name"
     t.integer "request_id"
-    t.boolean "is_frozen", default: false
+    t.boolean "is_pinned", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

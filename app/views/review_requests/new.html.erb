@@ -10,11 +10,22 @@
 
   <body>
     <%= form_for(@review_request, html: {class: "post-request"}) do |f| %>
+      <% if @review_request.errors.any? %>
+        <div class="error-list">
+          <p class="error-list__head">Error</p>
+          <% @review_request.errors.full_messages.each do |message| %>
+          <li class="error-list__message">
+            <%= message %>
+          </li>
+          <% end %>
+        </div>
+      <% end %>
+
       <%= f.text_field :title,
         class: "post-request__interface post-request__interface_input-title" %>
 
       <%= f.submit "リクエスト",
-      class: "post-request__interface post-request__interface_submit" %>
+        class: "post-request__interface post-request__interface_submit" %>
 
       <%= f.text_area :text,
         class: "post-request__interface post-request__interface_input-text" %>

@@ -12,8 +12,9 @@ body {
   background-color: #FFF;
 }
 
-.coreview-logo {
-  margin: 10px;
+.coreview-logo-header {
+  margin: 5px 20px 0px;
+  height: 45px;
 }
 
 .button {
@@ -81,7 +82,7 @@ body {
 }
 
 .content {
-  margin-top: 60px;
+  margin-top: 70px;
 }
 
 .body {
@@ -94,6 +95,11 @@ body {
   background-color: #082066;
   color: #FFF;
   padding: 10px;
+}
+
+.coreview-logo-footer {
+  margin: 5px 0px;
+  height: 60px;
 }
 
 .footer .columns {

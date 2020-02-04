@@ -31,11 +31,11 @@
   width: calc(100% - 1rem);
 }
 
-.requester-information {
+.user-information {
   display: inline-block;
 }
 
-.requester-information__icon {
+.user-information__icon {
   background-color: #0da86d;
   border-radius: 50%;
   display: inline-block;
@@ -44,7 +44,7 @@
   width: 30px;
 }
 
-.requester-information__name {
+.user-information__name {
   display: inline-block;
   margin: 0;
   vertical-align: middle;

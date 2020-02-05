@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_02_04_100524) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "request_status"
-    t.string "postscript"
+    t.string "additional_remark"
     t.boolean "is_frozen", default: false
     t.index ["text"], name: "index_review_requests_on_text", unique: true
     t.index ["title"], name: "index_review_requests_on_title", unique: true

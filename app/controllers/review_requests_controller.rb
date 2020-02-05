@@ -46,10 +46,10 @@ class ReviewRequestsController < ApplicationController
     all_tags = params[:tags].split(/[ |　]/)
     raise ArgumentError, 'too many tags' if all_tags.size > MAX_TAG_AMOUNT
 
+    raise ArgumentError, 'duplicate tag name' if same_name?(all_tags)
+
     all_tags.map do |tag|
       raise ArgumentError, 'tag size is too long' if tag.size > MAX_TAG_SIZE
-
-      raise ArgumentError, 'duplicate tag name' if same_name?(all_tags)
 
       Tag.new(tag_name: tag, request_id: id, is_pinned: true)
     end

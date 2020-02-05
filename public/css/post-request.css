@@ -67,6 +67,19 @@ body {
   width: 100%;
 }
 
+.post-request__interface_input-tags {
+  font-size: 18px;
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.post-request__interface_text {
+  font-size: 15px;
+  text-align: center;
+}
+
 @media screen and (max-width: 767px) {
   .post-request__interface_input-title {
     width: 100%;

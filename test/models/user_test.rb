@@ -13,4 +13,9 @@ class UserTest < ActiveSupport::TestCase
     @user.name = ' '
     assert_not @user.valid?
   end
+
+  test 'name length should be no more than 15' do
+    @user.name = 'a' * 16
+    assert_not @user.valid?
+  end
 end

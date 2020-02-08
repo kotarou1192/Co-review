@@ -9,7 +9,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
-  test 'name shoud be presence' do
+  test 'name should be presence' do
     @user.name = ' '
     assert_not @user.valid?
   end

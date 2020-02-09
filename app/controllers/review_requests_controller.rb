@@ -1,5 +1,5 @@
 class ReviewRequestsController < ApplicationController
-  MAX_TAG_AMOUNT = 10
+  MAX_TAGS_AMOUNT = 10
   MAX_TAG_SIZE = 16
 
   def show

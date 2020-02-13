@@ -16,26 +16,46 @@ class ReviewRequestsController < ApplicationController
 
   def create
     @review_request = ReviewRequest.new(review_request_params)
-    @tags = params[:tags]
+    # p '------'
     # p params
-    begin
-      create_tag_record
-    rescue ArgumentError => e
-      @review_request.errors.add 'tag_error:', e.message
+    # p '------'
+
+    # "------"
+    # <ActionController::Parameters {"utf8"=>"✓", "authenticity_token"=>token,
+    # "review_request"=><ActionController::Parameters {"title"=>"test",
+    # "text"=>"testtext"}permitted: false>, "commit"=>"リクエスト",
+    # "tags"=>"testtags", "controller"=>"review_requests", "action"=>"create"}
+    # permitted: false>
+    # "------"
+    unless are_tags_valid?
       render action: :new
       return
     end
     if @review_request.save
-      id = @review_request.id
-      tags = create_tag_record(id)
-      tags.each(&:save)
-      redirect_to "/review_requests/#{id}"
+      finish_creating_review_request
     else
       render action: :new
     end
   end
 
   private
+
+  def finish_creating_review_request
+    tags = create_tag_record(@review_request.id)
+    tags.each(&:save)
+    redirect_to "/review_requests/#{@review_request.id}"
+  end
+
+  def are_tags_valid?
+    @tags = params[:tags]
+    begin
+      create_tag_record
+    rescue ArgumentError => e
+      @review_request.errors.add 'tag_error:', e.message
+      return false
+    end
+    true
+  end
 
   def review_request_params
     # for safety, choose only required parameters
@@ -44,7 +64,7 @@ class ReviewRequestsController < ApplicationController
 
   def create_tag_record(id = nil)
     all_tags = params[:tags].split(/[ |　]/)
-    raise ArgumentError, 'too many tags' if all_tags.size > MAX_TAG_AMOUNT
+    raise ArgumentError, 'too many tags' if all_tags.size > MAX_TAGS_AMOUNT
 
     raise ArgumentError, 'duplicate tag name' if same_name?(all_tags)
 

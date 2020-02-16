@@ -27,7 +27,7 @@ class ReviewRequestsController < ApplicationController
     # "tags"=>"testtags", "controller"=>"review_requests", "action"=>"create"}
     # permitted: false>
     # "------"
-    unless are_tags_valid?
+    unless all_tags_valid?
       render action: :new
       return
     end
@@ -46,7 +46,7 @@ class ReviewRequestsController < ApplicationController
     redirect_to "/review_requests/#{@review_request.id}"
   end
 
-  def are_tags_valid?
+  def all_tags_valid?
     @tags = params[:tags]
     begin
       create_tag_record

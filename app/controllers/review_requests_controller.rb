@@ -17,7 +17,7 @@ class ReviewRequestsController < ApplicationController
 
   def create
     @review_request = ReviewRequest.new(review_request_params)
-    @tags = params[:tags]
+    @tag_names_text = params[:tags]
     # p '------'
     # p params
     # p '------'

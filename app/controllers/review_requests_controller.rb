@@ -68,10 +68,10 @@ class ReviewRequestsController < ApplicationController
 
     raise ArgumentError, 'タグ名が重複しています。' if tag_duplicate?(all_tags)
 
-    all_tags.map do |tag|
+    all_tags.map do |tag_name|
       raise ArgumentError, "タグ名が長すぎます。#{MAX_TAG_CHARS_COUNT}文字までにして下さい。" if tag.size > MAX_TAG_CHARS_COUNT
 
-      Tag.new(tag_name: tag, request_id: id, pinned: true)
+      Tag.new(tag_name: tag_name, request_id: id, pinned: true)
     end
   end
 

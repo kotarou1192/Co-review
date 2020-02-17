@@ -71,7 +71,7 @@ class ReviewRequestsController < ApplicationController
     all_tags.map do |tag|
       raise ArgumentError, "タグ名が長すぎます。#{MAX_TAG_CHARS_COUNT}文字までにして下さい。" if tag.size > MAX_TAG_SIZE
 
-      Tag.new(tag_name: tag, request_id: id, is_pinned: true)
+      Tag.new(tag_name: tag, request_id: id, pinned: true)
     end
   end
 

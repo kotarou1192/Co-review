@@ -1,5 +1,5 @@
 class ReviewRequestsController < ApplicationController
-  MAX_TAGS_AMOUNT = 10
+  MAX_TAGS_COUNT = 10
   # NOTE: the size of "あ" is 1.
   MAX_TAG_SIZE = 16
 
@@ -65,7 +65,7 @@ class ReviewRequestsController < ApplicationController
 
   def create_tag_record(id = nil)
     all_tags = params[:tags].split(/[ |　]/)
-    raise ArgumentError, "タグの量が多すぎます。#{MAX_TAGS_AMOUNT}個までにしてください。" if all_tags.size > MAX_TAGS_AMOUNT
+    raise ArgumentError, "タグの量が多すぎます。#{MAX_TAGS_COUNT}個までにしてください。" if all_tags.size > MAX_TAGS_AMOUNT
 
     raise ArgumentError, 'タグ名が重複しています。' if tag_duplicate?(all_tags)
 

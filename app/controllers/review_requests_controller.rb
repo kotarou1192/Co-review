@@ -44,7 +44,7 @@ class ReviewRequestsController < ApplicationController
   def finish_creating_review_request
     tags = create_tag_record(@review_request.id)
     tags.each(&:save)
-    redirect_to "/review_requests/#{@review_request.id}"
+    redirect_to @review_request
   end
 
   def all_tags_valid?

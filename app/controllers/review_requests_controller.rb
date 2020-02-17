@@ -1,7 +1,7 @@
 class ReviewRequestsController < ApplicationController
   MAX_TAGS_COUNT = 10
   # NOTE: the size of "あ" is 1.
-  MAX_TAG_SIZE = 16
+  MAX_TAG_CHARS_COUNT = 16
 
   def show
     @review_request = ReviewRequest.find(params[:id])
@@ -70,7 +70,7 @@ class ReviewRequestsController < ApplicationController
     raise ArgumentError, 'タグ名が重複しています。' if tag_duplicate?(all_tags)
 
     all_tags.map do |tag|
-      raise ArgumentError, "タグ名が長すぎます。#{MAX_TAG_SIZE}文字までにして下さい。" if tag.size > MAX_TAG_SIZE
+      raise ArgumentError, "タグ名が長すぎます。#{MAX_TAG_CHARS_COUNT}文字までにして下さい。" if tag.size > MAX_TAG_SIZE
 
       Tag.new(tag_name: tag, request_id: id, is_pinned: true)
     end

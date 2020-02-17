@@ -1,6 +1,5 @@
 class ReviewRequestsController < ApplicationController
   MAX_TAGS_COUNT = 10
-  # NOTE: the size of "あ" is 1.
   MAX_TAG_CHARS_COUNT = 16
 
   def show

@@ -63,7 +63,7 @@ class ReviewRequestsController < ApplicationController
   end
 
   def create_tag_record(id = nil)
-    all_tags = params[:tags].split(/[ |　]/)
+    all_tags = params[:tags].split(/[[:blank:]]/)
     raise ArgumentError, "タグの量が多すぎます。#{MAX_TAGS_COUNT}個までにしてください。" if all_tags.size > MAX_TAGS_COUNT
 
     raise ArgumentError, 'タグ名が重複しています。' if tag_duplicate?(all_tags)

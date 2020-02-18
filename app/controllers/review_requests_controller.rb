@@ -28,7 +28,7 @@ class ReviewRequestsController < ApplicationController
     # "tags"=>"testtags", "controller"=>"review_requests", "action"=>"create"}
     # permitted: false>
     # "------"
-    unless all_tags_valid?
+    unless all_tag_names_valid?
       render action: :new
       return
     end
@@ -47,7 +47,7 @@ class ReviewRequestsController < ApplicationController
     redirect_to @review_request
   end
 
-  def all_tags_valid?
+  def all_tag_names_valid?
     begin
       create_tag_record
     rescue ArgumentError => e
@@ -66,7 +66,7 @@ class ReviewRequestsController < ApplicationController
     all_tag_names = params[:tags].split(/[[:blank:]]/)
     raise ArgumentError, "タグの量が多すぎます。#{MAX_TAGS_COUNT}個までにしてください。" if all_tag_names.size > MAX_TAGS_COUNT
 
-    raise ArgumentError, 'タグ名が重複しています。' if tag_duplicate?(all_tag_names)
+    raise ArgumentError, 'タグ名が重複しています。' if tag_name_duplicate?(all_tag_names)
 
     all_tag_names.map do |tag_name|
       raise ArgumentError, "タグ名が長すぎます。#{MAX_TAG_CHARS_COUNT}文字までにして下さい。" if tag_name.size > MAX_TAG_CHARS_COUNT
@@ -75,7 +75,7 @@ class ReviewRequestsController < ApplicationController
     end
   end
 
-  def tag_duplicate?(all_tag_names)
+  def tag_name_duplicate?(all_tag_names)
     !(all_tag_names.size - all_tag_names.uniq.size).zero?
   end
 end

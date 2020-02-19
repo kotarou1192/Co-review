@@ -28,7 +28,7 @@ class ReviewRequestsController < ApplicationController
     # "tags"=>"testtags", "controller"=>"review_requests", "action"=>"create"}
     # permitted: false>
     # "------"
-    unless all_tag_names_valid?
+    unless all_tags_valid?
       render action: :new
       return
     end
@@ -47,7 +47,7 @@ class ReviewRequestsController < ApplicationController
     redirect_to @review_request
   end
 
-  def all_tag_names_valid?
+  def all_tags_valid?
     begin
       create_tag_record
     rescue ArgumentError => e

@@ -71,6 +71,8 @@ body {
 }
 
 .post-request__input-tags {
+  border: solid 2px #dddddd;
+  border-radius: 15px;
   font-size: 18px;
   height: 30px;
   width: 100%;

@@ -63,6 +63,8 @@ body {
 }
 
 .post-request__input-text {
+  border: solid 2px #dddddd;
+  border-radius: 15px;
   font-size: 18px;
   height: 500px;
   margin-top: 50px;

@@ -44,7 +44,7 @@ body {
   width: 80%;
 }
 
-.post-request__interface_submit {
+.post-request__submit-button {
   background-color: #0da86d;
   border: none;
   color: white;
@@ -53,7 +53,7 @@ body {
   width: 15%;
 }
 
-.post-request__interface_submit_bottom {
+.post-request__submit-button_bottom {
   display: none;
   margin-top: 50px;
   width: 100%;
@@ -85,11 +85,11 @@ body {
     width: 100%;
   }
   
-  .post-request__interface_submit {
+  .post-request__submit-button {
     display: none;
   }
 
-  .post-request__interface_submit_bottom {
+  .post-request__submit-button_bottom {
     display: inline-block;
   }
 }

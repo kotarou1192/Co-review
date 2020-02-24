@@ -21,12 +21,12 @@ body {
   width: 100%;
 }
 
-.post-request__error-text{
+.post-request__error-text {
   margin: 0;
   margin-left: 0.5rem;
 }
 
-.post-request__error-message{
+.post-request__error-message {
   margin-left: 1rem;
 }
 

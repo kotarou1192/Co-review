@@ -30,13 +30,6 @@ body {
   margin-left: 1rem;
 }
 
-.post-request__interface {
-  border: solid 2px #dddddd;
-  border-radius: 15px;
-  margin: 0;
-  padding: 0;
-}
-
 .post-request__input-title {
   border: solid 2px #dddddd;
   border-radius: 15px;

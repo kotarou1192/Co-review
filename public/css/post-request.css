@@ -38,6 +38,8 @@ body {
 }
 
 .post-request__input-title {
+  border: solid 2px #dddddd;
+  border-radius: 15px;
   font-size: 20px;
   height: calc(50px - 10px);
   padding: 5px;

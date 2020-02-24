@@ -21,7 +21,7 @@ body {
   width: 100%;
 }
 
-.error-list__head{
+.post-request__error-text{
   margin: 0;
   margin-left: 0.5rem;
 }

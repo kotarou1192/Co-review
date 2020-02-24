@@ -14,7 +14,7 @@
         <div class="post-request__error-list">
           <p class="post-request__error-text">Error</p>
           <% @review_request.errors.full_messages.each do |message| %>
-          <li class="error-list__message">
+          <li class="post-request__error-message">
             <%= message %>
           </li>
           <% end %>

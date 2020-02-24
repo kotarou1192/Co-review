@@ -86,7 +86,7 @@ body {
     width: 100%;
   }
   
-  .post-request__submit-button {
+  .post-request__submit-button_top {
     display: none;
   }
 

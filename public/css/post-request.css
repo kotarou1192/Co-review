@@ -48,6 +48,7 @@ body {
 
 .post-request__submit-button {
   background-color: #0da86d;
+  border-radius: 15px;
   border: none;
   color: white;
   float: right;

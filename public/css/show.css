@@ -1,0 +1,18 @@
+.review-request {
+  padding: 30px;
+}
+
+.review-request__text {
+  padding: 10px 30px;
+  font-size: 20px;
+  background-color: blanchedalmond;
+}
+
+.responce-review {
+  padding: 30px;
+  text-align: center;
+}
+
+.post-responce-review {
+  text-align: center;
+}

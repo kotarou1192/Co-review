@@ -46,7 +46,7 @@ class ReviewRequestsController < ApplicationController
     ActiveRecord::Base.transaction do
       @review_request.save!
       tags.each(&:save!)
-    rescue => e
+    rescue ActiveRecord::RecordInvalid
       return false
     end
     true

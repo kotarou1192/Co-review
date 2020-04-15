@@ -24,7 +24,14 @@
     
       <div class="review-request">
         <p>
-          <%= render partial: 'layouts/review_request_card', locals: { date: "", time: @review_request.created_at, title: @review_request.title, user_name: 'test', review_count: 0} %>
+          <%= render partial: 'layouts/review_request_card',
+                     locals: {
+                       date: "",
+                       time: @review_request.created_at,
+                       title: @review_request.title,
+                       user_name: 'test',
+                       review_count: 0
+                     } %>
         </p>
         <p class="review-request__text">
           <%= @review_request.text %>

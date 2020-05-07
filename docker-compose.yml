@@ -12,6 +12,19 @@ services:
     ports:
       - 3000
     entrypoint: bundle exec rails server -b 0.0.0.0
+    depends_on: 
+      - db
+    links:
+      - db
+  db:
+    image: mariadb
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: development
+      MYSQL_USER: development
+      MYSQL_PASSWORD: development
   web:
     build:
       context: ./
@@ -27,7 +40,12 @@ services:
   ruby:
     <<: *ruby
     entrypoint: []
+    depends_on: 
+      - db
+    links:
+      - db
 
 volumes:
   bundle_data:
   tmp_data:
+  db_data:

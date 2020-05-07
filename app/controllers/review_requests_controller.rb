@@ -32,24 +32,16 @@ class ReviewRequestsController < ApplicationController
       render action: :new
       return
     end
-    if creating_review_request_finished?
+    ActiveRecord::Base.transaction do
+      @review_request.save!
+      create_tag_record(@review_request.id).each(&:save!)
       redirect_to @review_request
-    else
+    rescue ActiveRecord::RecordInvalid
       render action: :new
     end
   end
 
   private
-
-  def creating_review_request_finished?
-    ActiveRecord::Base.transaction do
-      @review_request.save!
-      create_tag_record(@review_request.id).each(&:save!)
-    rescue ActiveRecord::RecordInvalid
-      return false
-    end
-    true
-  end
 
   def all_tags_valid?
     begin

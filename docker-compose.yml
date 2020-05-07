@@ -1,0 +1,66 @@
+version: "3"
+services:
+  app: &ruby
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile-ruby
+    volumes:
+      - "./:/coreview"
+      - "bundle_data:/usr/local/bundle"
+      - "tmp_data:/coreview/tmp"
+    working_dir: /coreview
+    ports:
+      - 3000
+    entrypoint: bundle exec rails server -b 0.0.0.0
+    depends_on:  # この辺のDBはあくまで勉強用に二つ設置
+      - mariadb
+      - postgresql
+    links:
+      - mariadb
+      - postgresql
+  mariadb:
+    image: mariadb
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: "development"
+      MYSQL_USER: "development"
+      MYSQL_PASSWORD: "development"
+      TZ: "Asia/Tokyo"
+  postgresql:
+    image: postgres:alpine
+    volumes:
+      - "postgresql_data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_DB: "development"
+      POSTGRES_PASSWORD: "development"
+      POSTGRES_USER: "development"
+      TZ: "Asia/Tokyo"
+  web:
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile-nginx
+    volumes:
+      - "./:/coreview"
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    links:
+      - app
+  ruby:
+    <<: *ruby
+    entrypoint: []
+    depends_on: 
+      - mariadb
+      - postgresql
+    links:
+      - mariadb
+      - postgresql
+
+volumes:
+  bundle_data:
+  tmp_data:
+  mariadb_data:
+  postgresql_data:

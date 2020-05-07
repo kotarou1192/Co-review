@@ -23,3 +23,32 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## on docker-compose operation
+
+### build & bundle(only first)
+
+```shell
+docker-comopse build
+docker-compose run --rm ruby bundle install
+```
+
+#### watch log
+
+```shell
+docker-compose logs -f
+```
+
+### ex) Rails operation
+
+#### Launch rails server
+
+```shell
+docker-compose up web
+```
+
+#### db migration(development)
+
+```shell
+docker-compose run --rm ruby bundle exec rake db:migrate RAILS_ENV=development
+```

@@ -1,0 +1,34 @@
+version: "3"
+services:
+  app: &ruby
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile-ruby
+    volumes:
+      - "./:/coreview"
+      - "bundle_data:/usr/local/bundle"
+      - "tmp_data:/coreview/tmp"
+    working_dir: /coreview
+    ports:
+      - 3000
+    entrypoint: bundle exec rails server -b 0.0.0.0
+  web:
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile-nginx
+    volumes:
+      - "./:/coreview"
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    links:
+      - app
+
+  ruby:
+    <<: *ruby
+    entrypoint: []
+
+volumes:
+  bundle_data:
+  tmp_data:

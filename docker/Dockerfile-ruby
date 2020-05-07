@@ -1,0 +1,6 @@
+FROM ruby:2.7-alpine
+
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache libxml2-dev make gcc libc-dev nodejs tzdata sqlite-dev && \
+    apk add --virtual build-packages --no-cache build-base curl-dev

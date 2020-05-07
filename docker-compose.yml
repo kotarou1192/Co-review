@@ -24,7 +24,6 @@ services:
       - app
     links:
       - app
-
   ruby:
     <<: *ruby
     entrypoint: []

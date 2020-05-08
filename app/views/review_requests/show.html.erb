@@ -1,1 +1,51 @@
-<%= @review_request.title %>, <%= @review_request.text %>
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @review_request.title %></title>
+    <link rel="stylesheet" href="/css/header-footer.css">
+    <link rel="stylesheet" href="/css/show.css">
+  </head>
+  <body>
+
+    <div class="header">
+      <img class="coreview-logo-header" src="/coreview-logo/black.png">
+      <div class="search">
+        <input type="text" class="search-text" placeholder="What are you looking for?"><input type="button" class="button search-button" value="search">
+      </div>
+      <div class="buttons">
+        <input type="button" class="button post-button" value="Post" onclick="location.href='new'">
+        <input type="button" class="button signin-button" value="Sign in">
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="review-request">
+        <p>
+          <%= render partial: 'layouts/review_request_card',
+                     locals: {
+                       date: '',
+                       time: @review_request.created_at,
+                       title: @review_request.title,
+                       user_name: 'test',
+                       review_count: 0
+                     } %>
+        </p>
+        <p class="review-request__text">
+          <%= @review_request.text %>
+        </p>
+      </div>
+
+      <div class="response-review">
+        この位置にレスポンスレビューをずらっと表示
+      </div>
+
+    </div>
+
+    <div class="post-response-review">
+      <textarea rows="10" cols="60">この位置にレスポンスレビュー（返信）入力欄を持って来る</textarea>
+    </div>
+  </body>
+</html>

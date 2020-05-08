@@ -28,17 +28,14 @@ class ReviewRequestsController < ApplicationController
     # "tags"=>"testtags", "controller"=>"review_requests", "action"=>"create"}
     # permitted: false>
     # "------"
-    unless all_tags_valid?
-      render action: :new
-      return
-    end
+
+    return render action: :new unless all_tags_valid? && @review_request.valid?
+
     ActiveRecord::Base.transaction do
       @review_request.save!
       create_tag_record(@review_request.id).each(&:save!)
-      redirect_to @review_request
-    rescue ActiveRecord::RecordInvalid
-      render action: :new
     end
+    redirect_to @review_request
   end
 
   private

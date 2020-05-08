@@ -13,21 +13,9 @@ services:
       - 3000
     entrypoint: bundle exec rails server -b 0.0.0.0
     depends_on:  # この辺のDBはあくまで勉強用に二つ設置
-      - mariadb
       - postgresql
     links:
-      - mariadb
       - postgresql
-  mariadb:
-    image: mariadb
-    volumes:
-      - mariadb_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: "development"
-      MYSQL_USER: "development"
-      MYSQL_PASSWORD: "development"
-      TZ: "Asia/Tokyo"
   postgresql:
     image: postgres:alpine
     volumes:
@@ -53,10 +41,8 @@ services:
     <<: *ruby
     entrypoint: []
     depends_on: 
-      - mariadb
       - postgresql
     links:
-      - mariadb
       - postgresql
 
 volumes:

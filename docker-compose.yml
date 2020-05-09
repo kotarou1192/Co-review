@@ -6,25 +6,25 @@ services:
       dockerfile: docker/Dockerfile-ruby
     volumes:
       - "./:/coreview"
-      - "bundle_data:/usr/local/bundle"
       - "tmp_data:/coreview/tmp"
     working_dir: /coreview
     ports:
       - 3000
     entrypoint: bundle exec rails server -b 0.0.0.0
-    depends_on:  # この辺のDBはあくまで勉強用に二つ設置
+    depends_on:
       - postgresql
     links:
       - postgresql
+    env_file:
+      - .env
   postgresql:
     image: postgres:alpine
     volumes:
       - "postgresql_data:/var/lib/postgresql/data"
     environment:
-      POSTGRES_DB: "development"
-      POSTGRES_PASSWORD: "development"
-      POSTGRES_USER: "development"
       TZ: "Asia/Tokyo"
+    env_file:
+      - .env
   web:
     build:
       context: ./

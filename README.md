@@ -39,6 +39,12 @@ docker-compose run --rm ruby bundle install
 docker-compose logs -f
 ```
 
+#### connect file
+
+```shell
+docker-compose exec postgresql psql -U development coreview_development
+```
+
 ### ex) Rails operation
 
 #### Launch rails server

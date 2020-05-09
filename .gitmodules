@@ -1,4 +1,4 @@
 [submodule "wiki"]
 	path = wiki
 	url = git@github.com:kotarou1192/Co-review.wiki.git
-	ignore = dirty
+	ignore = all

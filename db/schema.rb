@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2020_02_17_180224) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "review_requests", force: :cascade do |t|
-    t.integer "user_id"
     t.string "title", null: false
     t.string "text", null: false
     t.boolean "is_open", default: true
     t.integer "review_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.string "request_status"
     t.string "additional_remark"
     t.boolean "is_frozen", default: false

@@ -24,3 +24,5 @@
 
 .env
 wiki
+/.idea/
+/pgadmin/

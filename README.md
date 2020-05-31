@@ -24,14 +24,24 @@ Things you may want to cover:
 
 * ...
 
-## on docker-compose operation
+## on docker-compose
 
 ### build & bundle(only first)
 
 ```shell
-docker-comopse build
-docker-compose run --rm ruby bundle install
+docker-compose build
 ```
+
+#### Launch Co-review
+
+```shell
+docker-compose up -d web
+```
+
+Add these host to hostsfile:
+
+- coreview.coreview 127.0.0.1
+- pgadmin.coreview 127.0.0.1
 
 #### watch log
 
@@ -39,22 +49,11 @@ docker-compose run --rm ruby bundle install
 docker-compose logs -f
 ```
 
-#### connect file
-
-```shell
-docker-compose exec postgresql psql -U development coreview_development
-```
-
 ### ex) Rails operation
-
-#### Launch rails server
-
-```shell
-docker-compose up web
-```
 
 #### db migration(development)
 
 ```shell
-docker-compose run --rm ruby bundle exec rake db:migrate RAILS_ENV=development
+docker-compose run --entrypoint="" --rm app bundle exec rake db:migrate RAILS_ENV=development
+docker-compose run --entrypoint="" --rm app bundle exec rake db:migrate:reset RAILS_ENV=development
 ```

@@ -25,5 +25,13 @@ module CoReview
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
       %Q(#{html_tag}).html_safe
     end
+
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
+
+    if ENV['NGINX_COREVIEW_DOMAIN'] then
+      config.hosts << ENV['NGINX_COREVIEW_DOMAIN']
+    end
+
   end
 end

@@ -1,0 +1,14 @@
+FROM ruby:2.7-alpine
+
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache libxml2-dev make gcc libc-dev g++ nodejs tzdata sqlite-dev postgresql-dev postgresql && \
+    apk add --virtual build-packages --no-cache build-base curl-dev 
+
+RUN mkdir /coreview-build
+ADD Gemfile /coreview-build
+ADD Gemfile.lock /coreview-build
+WORKDIR /coreview-build
+RUN bundle install
+
+RUN rm -rf /usr/local/bundle/cache/* /usr/local/share/.cache/* /var/cache/* /tmp/*

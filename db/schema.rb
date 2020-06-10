@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_132315) do
   create_table "response_reviews", force: :cascade do |t|
     t.integer "review_request_id"
     t.text "text"
-    t.boolean "favolite", default: false
+    t.boolean "favorite", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["review_request_id"], name: "index_response_reviews_on_review_request_id"

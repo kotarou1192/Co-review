@@ -12,7 +12,7 @@
     <%= form_for(@review_request, html: {class: "post-request"}) do |f| %>
       <% if @review_request.errors.any? %>
         <div class="error-list">
-          <p class="error-list__head">Error</p>
+          <p class="error-list__head">ReviewRequestError</p>
           <% @review_request.errors.full_messages.each do |message| %>
           <li class="error-list__message">
             <%= message %>

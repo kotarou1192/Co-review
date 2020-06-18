@@ -22,6 +22,17 @@
 
     <div class="content">
 
+      <div>
+        <% if @tags.any? %>
+          <ul style="list-style: none;">
+            <li style="float: left;">タグ:</li>
+            <% @tags.each do |tag| %>
+              <li style="float: left; margin-left: 10px;"><%= tag.name %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
       <div class="review-request">
         <p>
           <%= render partial: 'layouts/review_request_card',

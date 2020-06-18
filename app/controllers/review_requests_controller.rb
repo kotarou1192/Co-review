@@ -1,7 +1,4 @@
 class ReviewRequestsController < ApplicationController
-  MAX_TAGS_COUNT = 10
-  MAX_TAG_CHARS_COUNT = 16
-
   def show
     @review_request = ReviewRequest.find(params[:id])
   end
@@ -16,7 +13,6 @@ class ReviewRequestsController < ApplicationController
 
   def create
     @review_request = ReviewRequest.new(review_request_params)
-    @tag_names_text = params[:tags]
     # p '------'
     # p params
     # p '------'
@@ -29,46 +25,18 @@ class ReviewRequestsController < ApplicationController
     # permitted: false>
     # "------"
 
-    return render action: :new unless all_tags_valid? && @review_request.valid?
+    return render action: :new unless @review_request.valid?
 
     ActiveRecord::Base.transaction do
       @review_request.save!
-      create_tag_record(@review_request.id).each(&:save!)
     end
     redirect_to @review_request
   end
 
   private
 
-  def all_tags_valid?
-    begin
-      create_tag_record
-    rescue ArgumentError => e
-      @review_request.errors.add 'tag_error:', e.message
-      return false
-    end
-    true
-  end
-
   def review_request_params
     # for safety, choose only required parameters
     params.require(:review_request).permit(:title, :text)
-  end
-
-  def create_tag_record(id = nil)
-    all_tag_names = params[:tags].split(/[[:blank:]]/)
-    raise ArgumentError, "タグの量が多すぎます。#{MAX_TAGS_COUNT}個までにしてください。" if all_tag_names.size > MAX_TAGS_COUNT
-
-    raise ArgumentError, 'タグ名が重複しています。' if tag_name_duplicated?(all_tag_names)
-
-    all_tag_names.map do |tag_name|
-      raise ArgumentError, "タグ名が長すぎます。#{MAX_TAG_CHARS_COUNT}文字までにして下さい。" if tag_name.size > MAX_TAG_CHARS_COUNT
-
-      Tag.new(name: tag_name, review_request_id: id, pinned: true)
-    end
-  end
-
-  def tag_name_duplicated?(all_tag_names)
-    !(all_tag_names.size - all_tag_names.uniq.size).zero?
   end
 end

@@ -17,7 +17,7 @@ class ReviewRequestsController < ApplicationController
   def create
     @review_request = ReviewRequest.new(review_request_params)
     @tags = Tag::MAX_TAGS_COUNT.times.map do |num|
-      Tag.new(tag_params[num.to_s])
+      Tag.new(tag_params(num))
     end
     # p '------'
     # p params
@@ -59,7 +59,7 @@ class ReviewRequestsController < ApplicationController
     params.require(:review_request).permit(:title, :text)
   end
 
-  def tag_params
-    params[:tag].permit!.to_h
+  def tag_params(num)
+    params.require(:tag).require(num.to_s).permit(:name)
   end
 end

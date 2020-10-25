@@ -11,10 +11,10 @@
   <body>
     <%= form_for(@review_request, html: {class: "post-request"}) do |f| %>
       <% if @review_request.errors.any? %>
-        <div class="error-list">
-          <p class="error-list__head">Error</p>
+        <div class="post-request__error-list">
+          <p class="post-request__error-text">Error</p>
           <% @review_request.errors.full_messages.each do |message| %>
-          <li class="error-list__message">
+          <li class="post-request__error-message">
             <%= message %>
           </li>
           <% end %>
@@ -22,22 +22,21 @@
       <% end %>
 
       <%= f.text_field :title,
-        class: "post-request__interface post-request__interface_input-title" %>
+        class: "post-request__input-title" %>
 
       <%= f.submit "リクエスト",
-        class: "post-request__interface post-request__interface_submit" %>
+        class: "post-request__submit-button post-request__submit-button_top" %>
 
+      <p class="post-request__label">タグを半角スペース区切りで入力</p>
+      <input id="tags" name="tags" value="<%= @tag_names_text %>" type="text" class="post-request__input-tags">
       
-      <p class="post-request__text">タグを半角スペース区切りで入力</p>
-      <input id="tags" name="tags" value="<%= @tag_names_text %>" type="text" class="post-request__interface post-request__interface_input-tags">
-      
-      <p class="post-request__text">本文を入力</p>
+      <p class="post-request__label">本文を入力</p>
 
       <%= f.text_area :text,
-        class: "post-request__interface post-request__interface_input-text" %>
+        class: "post-request__input-text" %>
 
      <%= f.submit "リクエスト",
-        class: "post-request__interface post-request__interface_submit post-request__interface_submit_bottom"%>
+        class: "post-request__submit-button post-request__submit-button_bottom"%>
     <% end %>
   </body>
 </html>

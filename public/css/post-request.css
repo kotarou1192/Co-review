@@ -10,7 +10,7 @@ body {
   width: 80%;
 }
 
-.error-list {
+.post-request__error-list {
   background-color: #f37575;
   border-radius: 10px;
   color: white;
@@ -21,31 +21,27 @@ body {
   width: 100%;
 }
 
-.error-list__head{
+.post-request__error-text {
   margin: 0;
   margin-left: 0.5rem;
 }
 
-.error-list__message {
+.post-request__error-message {
   margin-left: 1rem;
 }
 
-.post-request__interface {
+.post-request__input-title {
   border: solid 2px #dddddd;
   border-radius: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.post-request__interface_input-title {
   font-size: 20px;
   height: calc(50px - 10px);
   padding: 5px;
   width: 80%;
 }
 
-.post-request__interface_submit {
+.post-request__submit-button {
   background-color: #0da86d;
+  border-radius: 15px;
   border: none;
   color: white;
   float: right;
@@ -53,13 +49,15 @@ body {
   width: 15%;
 }
 
-.post-request__interface_submit_bottom {
+.post-request__submit-button_bottom {
   display: none;
   margin-top: 50px;
   width: 100%;
 }
 
-.post-request__interface_input-text {
+.post-request__input-text {
+  border: solid 2px #dddddd;
+  border-radius: 15px;
   font-size: 18px;
   height: 500px;
   margin-top: 50px;
@@ -67,7 +65,9 @@ body {
   width: 100%;
 }
 
-.post-request__interface_input-tags {
+.post-request__input-tags {
+  border: solid 2px #dddddd;
+  border-radius: 15px;
   font-size: 18px;
   height: 30px;
   width: 100%;
@@ -75,21 +75,22 @@ body {
   margin: 10px 0;
   margin-bottom: 10px;
 }
-.post-request__text {
+
+.post-request__label {
   font-size: 15px;
   text-align: center;
 }
 
 @media screen and (max-width: 767px) {
-  .post-request__interface_input-title {
+  .post-request__input-title {
     width: 100%;
   }
   
-  .post-request__interface_submit {
+  .post-request__submit-button_top {
     display: none;
   }
 
-  .post-request__interface_submit_bottom {
+  .post-request__submit-button_bottom {
     display: inline-block;
   }
 }
